@@ -116,11 +116,18 @@ namespace Ipoteka
                 finally
                 {
                     newThread.Start();
-                }
-                //MessageBox.Show("Yes");    
+                }                  
             }
             else
-                MessageBox.Show("No");
+            {
+                const string message = "Incorrect username or password";
+                const string caption = "Information";
+                var result = MessageBox.Show(
+                    message, 
+                    caption, 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
+            }
         }
         public void newFormOpen(object obj)
         {

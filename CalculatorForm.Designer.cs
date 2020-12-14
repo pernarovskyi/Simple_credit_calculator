@@ -30,10 +30,11 @@
         {
             this.tabCalc = new System.Windows.Forms.TabControl();
             this.tab_Ipoteka = new System.Windows.Forms.TabPage();
-            this.btnCalculate = new System.Windows.Forms.Button();
-            this.textBoxAmount = new System.Windows.Forms.TextBox();
-            this.labelAmount = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabCredyt = new System.Windows.Forms.TabPage();
+            this.tbox_Client = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnSaveToDB = new System.Windows.Forms.Button();
             this.Calculate = new System.Windows.Forms.Button();
             this.tBox_overpayment = new System.Windows.Forms.TextBox();
             this.tBox_totalPayments = new System.Windows.Forms.TextBox();
@@ -47,6 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_LoadFromDB = new System.Windows.Forms.Button();
             this.tabCalc.SuspendLayout();
             this.tab_Ipoteka.SuspendLayout();
             this.tabCredyt.SuspendLayout();
@@ -64,47 +66,29 @@
             // 
             // tab_Ipoteka
             // 
-            this.tab_Ipoteka.Controls.Add(this.btnCalculate);
-            this.tab_Ipoteka.Controls.Add(this.textBoxAmount);
-            this.tab_Ipoteka.Controls.Add(this.labelAmount);
+            this.tab_Ipoteka.Controls.Add(this.btn_LoadFromDB);
+            this.tab_Ipoteka.Controls.Add(this.listBox1);
             this.tab_Ipoteka.Location = new System.Drawing.Point(4, 22);
             this.tab_Ipoteka.Name = "tab_Ipoteka";
             this.tab_Ipoteka.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Ipoteka.Size = new System.Drawing.Size(369, 333);
             this.tab_Ipoteka.TabIndex = 0;
-            this.tab_Ipoteka.Text = "Розрахунок іпотеки";
+            this.tab_Ipoteka.Text = "Умови кредиту клієнтів";
             this.tab_Ipoteka.UseVisualStyleBackColor = true;
             // 
-            // btnCalculate
+            // listBox1
             // 
-            this.btnCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCalculate.Location = new System.Drawing.Point(118, 202);
-            this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(110, 33);
-            this.btnCalculate.TabIndex = 2;
-            this.btnCalculate.Text = "Розрахувати";
-            this.btnCalculate.UseVisualStyleBackColor = true;
-            // 
-            // textBoxAmount
-            // 
-            this.textBoxAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxAmount.Location = new System.Drawing.Point(103, 56);
-            this.textBoxAmount.Name = "textBoxAmount";
-            this.textBoxAmount.Size = new System.Drawing.Size(110, 21);
-            this.textBoxAmount.TabIndex = 1;
-            // 
-            // labelAmount
-            // 
-            this.labelAmount.AutoSize = true;
-            this.labelAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAmount.Location = new System.Drawing.Point(3, 57);
-            this.labelAmount.Name = "labelAmount";
-            this.labelAmount.Size = new System.Drawing.Size(94, 16);
-            this.labelAmount.TabIndex = 0;
-            this.labelAmount.Text = "Сума іпотеки";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(3, 50);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(356, 277);
+            this.listBox1.TabIndex = 0;
             // 
             // tabCredyt
             // 
+            this.tabCredyt.Controls.Add(this.tbox_Client);
+            this.tabCredyt.Controls.Add(this.label7);
+            this.tabCredyt.Controls.Add(this.btnSaveToDB);
             this.tabCredyt.Controls.Add(this.Calculate);
             this.tabCredyt.Controls.Add(this.tBox_overpayment);
             this.tabCredyt.Controls.Add(this.tBox_totalPayments);
@@ -126,11 +110,42 @@
             this.tabCredyt.Text = "Розрахунок кредиту";
             this.tabCredyt.UseVisualStyleBackColor = true;
             // 
+            // tbox_Client
+            // 
+            this.tbox_Client.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbox_Client.Location = new System.Drawing.Point(181, 20);
+            this.tbox_Client.Name = "tbox_Client";
+            this.tbox_Client.Size = new System.Drawing.Size(100, 21);
+            this.tbox_Client.TabIndex = 15;
+            this.tbox_Client.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(125, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 16);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Клієнт";
+            // 
+            // btnSaveToDB
+            // 
+            this.btnSaveToDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveToDB.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveToDB.Location = new System.Drawing.Point(181, 292);
+            this.btnSaveToDB.Name = "btnSaveToDB";
+            this.btnSaveToDB.Size = new System.Drawing.Size(117, 38);
+            this.btnSaveToDB.TabIndex = 13;
+            this.btnSaveToDB.Text = "Зберегти";
+            this.btnSaveToDB.UseVisualStyleBackColor = true;
+            this.btnSaveToDB.Click += new System.EventHandler(this.btnSaveToDB_Click);
+            // 
             // Calculate
             // 
             this.Calculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Calculate.ForeColor = System.Drawing.Color.Black;
-            this.Calculate.Location = new System.Drawing.Point(124, 289);
+            this.Calculate.Location = new System.Drawing.Point(58, 292);
             this.Calculate.Name = "Calculate";
             this.Calculate.Size = new System.Drawing.Size(117, 38);
             this.Calculate.TabIndex = 12;
@@ -255,6 +270,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Сума кредиту";
             // 
+            // btn_LoadFromDB
+            // 
+            this.btn_LoadFromDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_LoadFromDB.Location = new System.Drawing.Point(126, 6);
+            this.btn_LoadFromDB.Name = "btn_LoadFromDB";
+            this.btn_LoadFromDB.Size = new System.Drawing.Size(121, 38);
+            this.btn_LoadFromDB.TabIndex = 1;
+            this.btn_LoadFromDB.Text = "Завантажити";
+            this.btn_LoadFromDB.UseVisualStyleBackColor = true;
+            this.btn_LoadFromDB.Click += new System.EventHandler(this.btn_LoadFromDB_Click);
+            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,7 +293,6 @@
             this.Text = "CalculatorForm";
             this.tabCalc.ResumeLayout(false);
             this.tab_Ipoteka.ResumeLayout(false);
-            this.tab_Ipoteka.PerformLayout();
             this.tabCredyt.ResumeLayout(false);
             this.tabCredyt.PerformLayout();
             this.ResumeLayout(false);
@@ -279,9 +304,6 @@
         private System.Windows.Forms.TabControl tabCalc;
         private System.Windows.Forms.TabPage tab_Ipoteka;
         private System.Windows.Forms.TabPage tabCredyt;
-        private System.Windows.Forms.Button btnCalculate;
-        private System.Windows.Forms.TextBox textBoxAmount;
-        private System.Windows.Forms.Label labelAmount;
         private System.Windows.Forms.TextBox tBox_overpayment;
         private System.Windows.Forms.TextBox tBox_totalPayments;
         private System.Windows.Forms.TextBox tBox_monthPayments;
@@ -295,5 +317,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Calculate;
+        private System.Windows.Forms.Button btnSaveToDB;
+        private System.Windows.Forms.TextBox tbox_Client;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btn_LoadFromDB;
     }
 }

@@ -29,8 +29,9 @@ namespace Ipoteka
 
         public void closeConnection()
         {
-            if (connection.State == System.Data.ConnectionState.Open)
-                connection.Close(); // to do: do I need try-catch block here?
+            if (connection.State != System.Data.ConnectionState.Open)
+                return;
+            connection.Close();
         }
 
         public MySqlConnection getConnection()
